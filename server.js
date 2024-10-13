@@ -8,8 +8,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const urlDB = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`;
-const db = mysql.createConnection(urlDB);
+const db = mysql.createConnection({
+  user: process.env.USER,
+  host: process.env.HOST,
+  password: process.env.PASS,
+  database: process.env.DB,
+});
 
 app.post("/signup", (req, res) => {
   const sql1 = "SELECT * FROM login WHERE email = ?";
