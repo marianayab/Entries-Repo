@@ -8,10 +8,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.send("Hello, world!");
-});
-
 
 const db = mysql.createConnection({
   user: process.env.USER,
