@@ -8,12 +8,18 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("Hello, world!");
+});
+
+
 const db = mysql.createConnection({
   user: process.env.USER,
   host: process.env.HOST,
   password: process.env.PASS,
   database: process.env.DB,
 });
+
 
 app.post("/signup", (req, res) => {
   const sql1 = "SELECT * FROM login WHERE email = ?";
