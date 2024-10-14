@@ -7,13 +7,11 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 app.use(express.json());
 
-const corsOptions = {
-  origin: '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-};
-
-app.use(cors(corsOptions));
-
+app.use(
+  cors({
+    origin: "https://reg-system.netlify.app", // Replace with your Netlify app URL
+  })
+);
 
 const db = mysql.createConnection({
   user: process.env.USER,
@@ -21,7 +19,6 @@ const db = mysql.createConnection({
   password: process.env.PASS,
   database: process.env.DB,
 });
-
 
 app.post("/signup", (req, res) => {
   const sql1 = "SELECT * FROM login WHERE email = ?";
