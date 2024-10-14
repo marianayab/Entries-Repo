@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const mysql = require("mysql");
-const cors = require("cors"); //allows us to access apis
+const cors = require("cors"); 
 const PORT = process.env.PORT || 4000;
 
 const app = express();
@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://reg-system.netlify.app", // Replace with your Netlify app URL
+    origin: "https://reg-system.netlify.app", 
   })
 );
 
