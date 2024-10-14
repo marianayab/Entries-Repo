@@ -14,10 +14,10 @@ app.use(
 );
 
 const db = mysql.createConnection({
-  user: process.env.USER,
-  host: process.env.HOST,
-  password: process.env.PASS,
-  database: process.env.DB,
+  host: process.env.MYSQL_ADDON_HOST,
+  user: process.env.MYSQL_ADDON_USER,
+  password: process.env.MYSQL_ADDON_PASSWORD,
+  database: process.env.MYSQL_ADDON_DB,
 });
 
 app.post("/signup", (req, res) => {
